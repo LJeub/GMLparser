@@ -1,7 +1,6 @@
 function [ A ] = gmlstruct_to_adjacency( graph, index_fun)
-%GMLSTRUCT_TO_ADJACENCY Summary of this function goes here
-%   Detailed explanation goes here
-
+%GMLSTRUCT_TO_ADJACENCY Takes a gmlstruct graph and converts it to an
+%adjacency matrix. 
 % index_fun converts node_indices to range from 1:N
 if nargin<2
     index_fun=@(i) i+1;

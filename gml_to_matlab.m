@@ -11,15 +11,20 @@ lastfield={};
 
 tline=fgetl(file);
 while ischar(tline)
+    tline=strtrim(tline);
     if ~isempty(tline)  %ignore empty lines
-        if ~strncmp(tline,'#',1) %ignore comment lines
+        if strncmp(tline,'#',1) %ignore comment lines
+            tline=[];
+        else
             [field,~,~,index]=sscanf(tline,'%s',1);
             
             % checks for increment/decrement of level ([,]), anything that follows a bracket will be ignored
             if strcmp(field,'[')
                 level=level+1;
+                tline=strtrim(tline(2:end));
             elseif strcmp(field,']')
                 level=level-1;
+                tline=strtrim(tline(2:end));
             else
                 
                 % keep track of multiple fields with same name (such as all the nodes)
@@ -54,7 +59,7 @@ while ischar(tline)
                 
                 tline=tline(index:end);
                 
-                % get value of key (if to values specified only second is
+                % get value of key (if two values specified only second is
                 % kept)
                 while ~isempty(tline)
                     
@@ -81,9 +86,11 @@ while ischar(tline)
                         [field,~,~,index]=sscanf(tline, '%s',1);
                         if strcmp(field,'[')
                             level=level+1;
+                            tline=strtrim(tline(2:end));
                             break
                         elseif strcmp(field,']')
                             level=level-1;
+                            tline=strtrim(tline(2:end));
                             break
                         end
                     end
@@ -93,8 +100,9 @@ while ischar(tline)
         end
     end
     
-    
-    tline=fgetl(file);
+    if isempty(tline)
+        tline=fgetl(file);
+    end
 end
 
 end
