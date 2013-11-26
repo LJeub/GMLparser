@@ -1,4 +1,4 @@
-function [datastruct]=gml_to_matlab(filename)
+function [datastruct]=gml2struct(filename)
 
 file=fopen(filename);
 
@@ -18,7 +18,7 @@ while ischar(tline)
         else
             [field,~,~,index]=sscanf(tline,'%s',1);
             
-            % checks for increment/decrement of level ([,]), anything that follows a bracket will be ignored
+            % checks for increment/decrement of level ([,])
             if strcmp(field,'[')
                 level=level+1;
                 tline=strtrim(tline(2:end));
@@ -81,7 +81,7 @@ while ischar(tline)
                         index=index+1;
                         datastruct=setfield(datastruct,lastfield{:},char(field));
                         
-                        % checks for increment/decrement of level ([,]), anything that follows a bracket will be ignored
+                        % checks for increment/decrement of level ([,])
                     else
                         [field,~,~,index]=sscanf(tline, '%s',1);
                         if strcmp(field,'[')
