@@ -1,5 +1,15 @@
 function [gmlstruct]=gml2struct(filename)
 
+% gmlstruct=GML2STRUCT(filename)
+%
+% GMLSTRUCT2MAT reads GML file given by filename and returns the GML tree as a struct
+%
+% Version 1.0
+%
+% Lucas Jeub
+% 05/12/2013
+% jeub@maths.ox.ac.uk
+
 file=fopen(filename);
 
 % initialise variables
