@@ -2,12 +2,11 @@ function [ A,node_id ] = gmlstruct2mat( graph)
 % [A,node_id]=GMLSTRUCT2MAT(graph)
 %
 % GMLSTRUCT2MAT takes a gmlstruct graph and converts it to an adjacency matrix. 
-%
-% Version 1.0
-%
-% Lucas Jeub
-% 05/12/2013
-% jeub@maths.ox.ac.uk
+
+% Version: 1.0
+% Date: 05/12/2013
+% Author: Lucas Jeub
+% Email: jeub@maths.ox.ac.uk
 
 
 if ~isfield(graph,'directed')
