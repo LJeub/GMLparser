@@ -1,4 +1,4 @@
-function [ A,node_id ] = gmlstruct2mat( gmlstruct)
+function [A] = gmlstruct2mat( gmlstruct)
 % [A,node_id]=GMLSTRUCT2MAT(graph)
 %
 % GMLSTRUCT2MAT takes a gmlstruct graph and converts it to an adjacency matrix. 
@@ -35,17 +35,18 @@ end
 N=length(graph.node);
 
 if ischar(graph.node(1).id)
-  
-    sources={graph.edge.source};
-    targets={graph.edge.target};
+    nodes={graph.node.id};
+    nodeMap=containers.Map(nodes,1:numel(nodes));
+    mapFun=@(kcell) cellfun(@(k) nodeMap(k),kcell);
+    sources=mapFun({graph.edge.source});
+    targets=mapFun({graph.edge.target});
 else
-    sources=[graph.edge.source];
-    targets=[graph.edge.target];
+    nodes=[graph.node.id];
+    nodeMap=containers.Map(nodes,1:numel(nodes));
+    mapFun=@(kvec) arrayfun(@(k) nodeMap(k),kvec);
+    sources=mapFun([graph.edge.source]);
+    targets=mapFun([graph.edge.target]);
 end
-
-[node_id,~,index]=unique([sources,targets]);
-source_index=index(1:length(sources));
-target_index=index(length(sources)+1:end);
 
 if isfield(graph.edge,'value')
     values=[graph.edge.value];
@@ -54,23 +55,12 @@ else
 end
 
 
-A=sparse(target_index,source_index,values,N,N);
+A=sparse(targets,sources,values,N,N);
 
 if ~graph.directed
-    A=A+sparse(source_index,target_index,values,N,N);
+    A=A+sparse(sources,targets,values,N,N);
 end
     
 end
 
-function graph=find_graph(gmlstruct)
-graph=[];
-if ~isfield(gmlstruct,'graph')
-    fields=fieldnames(gmlstruct);
-    for i=1:length(fields)
-        graph=find_graph(gmlstruct.(fields{i}));
-    end
-else
-    graph=gmlstruct.graph;
-end
-end
 
