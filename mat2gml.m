@@ -20,7 +20,7 @@ if all(weight==1)
         source,target);
 else
     edges=arrayfun(@(s,t,w) struct('source',node_ids(s),'target',node_ids(t),...
-        'weight',w),source,target,weight);
+        'value',w),source,target,weight);
 end
 
 gml.graph=struct('directed',directed,'node',nodes,'edge',edges);
