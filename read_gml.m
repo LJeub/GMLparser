@@ -1,4 +1,4 @@
-function gml=gml2struct2(file)
+function gml=read_gml(file)
 f=fopen(file);
 gml=parse_gml(createBuffer(f));
 
