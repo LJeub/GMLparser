@@ -1,19 +1,15 @@
-function [A] = gmlstruct2mat( gmlstruct)
+function [A] = gml2mat(gmlstruct)
 % [A,node_id]=GMLSTRUCT2MAT(graph)
 %
-% GMLSTRUCT2MAT takes a gmlstruct graph and converts it to an adjacency matrix. 
+% GML2MAT takes a gmlstruct graph and converts it to an adjacency matrix. 
 
 % Version: 1.0
 % Date: 05/12/2013
 % Author: Lucas Jeub
 % Email: jeub@maths.ox.ac.uk
 
-if ~isfield(gmlstruct,'node')
-    graph=find_graph(gmlstruct);
-else
-    graph=gmlstruct;
-end
 
+graph=find_graph(gmlstruct);
 if isempty(graph)
     error('no graph information found')
 end
