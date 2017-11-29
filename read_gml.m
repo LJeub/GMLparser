@@ -1,4 +1,5 @@
 function gml=read_gml(file)
+% gml=read_gml(file) reads data from gml file and returns it as a struct.
 f=fopen(file);
 gml=parse_gml(createBuffer(f));
 

@@ -1,4 +1,5 @@
 function write_gml(gml_struct, filename, indent)
+% write_gml(gml_struct, filename, indent) writes gml struct to file
 if nargin<3
     indent=2;
 end
