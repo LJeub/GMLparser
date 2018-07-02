@@ -103,5 +103,3 @@ function str=parse_token(buffer,termFun)
         str=[str,c];
     end
 end
-
-
