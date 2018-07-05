@@ -1,4 +1,5 @@
 #GMLparser
+
 ##Read and write graphs in GML format
 
 `GMLparser` provides functions for reading and writing graph data (such as the networks on [Mark Newman's website](http://www-personal.umich.edu/~mejn/netdata/)) in the [GML](http://www.fim.uni-passau.de/index.php?id=17297&L=1) format. The functions support reading and writing arbitrary Struct data, thus preserving any metadata that may be present in the GML file. 
