@@ -5,6 +5,10 @@ function data=get_edge_data(gml,field)
 % (does not have to be in the top level of 'gml') and returns data as a
 % cell array or numeric array depending on the data type.
 
+% Version: 1.0
+% Date: 05/12/2013
+% Author: Lucas Jeub
+% Email: jeub@maths.ox.ac.uk
 graph=find_graph(gml);
 if ischar(graph.edge(1).(field))
     data={graph.edge.(field)};

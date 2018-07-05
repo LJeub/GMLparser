@@ -1,7 +1,7 @@
 function [A, nodes] = gml2mat(gmlstruct)
-% [A,node_id]=GMLSTRUCT2MAT(graph)
+% [A,nodes]=GML2MAT(gml)
 %
-% GML2MAT takes a gmlstruct graph and converts it to an adjacency matrix. 
+% GML2MAT takes a gmlstruct and extracts the graph information and converts it to an adjacency matrix. 
 
 % Version: 1.0
 % Date: 05/12/2013

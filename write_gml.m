@@ -1,5 +1,9 @@
 function write_gml(gml_struct, filename, indent)
-% write_gml(gml_struct, filename, indent) writes gml struct to file
+% WRITE_GML(gml_struct, filename, indent) writes gml struct to file. 
+
+% Date: 05/12/2013
+% Author: Lucas Jeub
+% Email: jeub@maths.ox.ac.uk
 if nargin<3
     indent=2;
 end
