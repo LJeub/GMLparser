@@ -3,10 +3,10 @@ function gml=mat2gml(A,node_ids)
 %
 % MAT2GML takes an adjacency matrix 'A' and optional 'node_ids' and converts it to a gml sturcture. 
 
-% Version: 1.0
-% Date: 05/12/2013
+% Version: 2.0
+% Date: Thu  5 Jul 2018 14:15:23 CEST
 % Author: Lucas Jeub
-% Email: jeub@maths.ox.ac.uk
+% Email: lucasjeub@gmail.com
 if nargin<2
     node_ids=0:length(A)-1;
 end

@@ -5,10 +5,10 @@ function data=get_node_data(gml,field)
 % (does not have to be in the top level of 'gml') and returns data as a
 % cell array or numeric array depending on the data type.
 
-% Version: 1.0
-% Date: 05/12/2013
+% Version: 2.0
+% Date: Thu  5 Jul 2018 14:15:23 CEST
 % Author: Lucas Jeub
-% Email: jeub@maths.ox.ac.uk
+% Email: lucasjeub@gmail.com
 graph=find_graph(gml);
 if ischar(graph.node(1).(field))
     data={graph.node.(field)};

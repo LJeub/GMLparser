@@ -4,10 +4,10 @@ function graph=find_graph(gmlstruct)
 % Recursively iterates through gmlstruct until it finds the graph and
 % returns it. If no graph is found, returns empty array.
 
-% Version: 1.0
-% Date: 05/12/2013
+% Version: 2.0
+% Date: Thu  5 Jul 2018 14:15:23 CEST
 % Author: Lucas Jeub
-% Email: jeub@maths.ox.ac.uk
+% Email: lucasjeub@gmail.com
 graph=[];
 if isstruct(gmlstruct)
     if isfield(gmlstruct,'node')
