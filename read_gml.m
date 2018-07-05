@@ -1,6 +1,7 @@
 function gml=read_gml(file)
 % gml=READ_GML(file) reads data from gml file and returns it as a struct.
 
+% Version: 2.0
 % Date: Thu  5 Jul 2018 14:15:23 CEST
 % Author: Lucas Jeub
 % Email: lucasjeub@gmail.com
